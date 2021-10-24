@@ -1,3 +1,14 @@
+<?php
+include("../booking_system/src/controllers/bookings.controller.php");
+include("../booking_system/src/utils/version_compare.php");
+$bookingsController = new BookingsController();
+$ver_comp = new VersionCompare();
+
+//if there isn't any data to import just fetch existing bookings
+$bookings = isset($_GET["activity"])&&isset($_POST["dataToImport"])&&$_GET["activity"]=="import"&&$_POST["dataToImport"] ? $bookingsController->syncBookings($_POST["dataToImport"]) : $bookingsController->fetchBookings();
+$bookings_count = $bookings ? count($bookings) : 0;
+?>
+
 <div>
     <div style="padding-left: 20px;padding-right: 20px;">
         <h1>Rexx Event Bookings</h1>
@@ -35,14 +46,26 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Leandro Bußmann</td>
-                    <td>leandro.bussmann@no-reply.rexx-systems.com</td>
-                    <td>International PHP Conference</td>
-                    <td>657.50</td>
-                    <td>2019-10-21 10:00:00</td>
-                    <td>Europe/Berlin</td>
-                </tr>
+            <?php if ($bookings_count == 0) { ?>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>No</td>
+                        <td>Data</td>
+                        <td></td>
+                    </tr>
+                <?php } else { ?>
+                    <?php foreach ($bookings as $booking) { ?>
+                        <tr>
+                            <td><?= $booking["employee_name"] ?></td>
+                            <td><?= $booking["employee_mail"] ?></td>
+                            <td><?= $booking["event_name"] ?></td>
+                            <td><?= $booking["participation_fee"] ?></td>
+                            <td><?= $booking["event_date"] ?></td>
+                            <td><?= $booking["version"] ? $ver_comp->getTimeZone($booking["version"]) : "" ?></td>
+                        </tr>
+                <?php }
+                } ?>
             </tbody>
         </table>
     </div>
