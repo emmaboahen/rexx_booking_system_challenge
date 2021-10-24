@@ -50,7 +50,7 @@ class Bookings extends BaseModel
         try {
             //select bookings based on filter or not
             if ($filter) {
-                $query = $filter["key"] == "event_date" ? "SELECT * FROM emp_bookings where DATE('event_date')='{$filter["value"]}'" : "SELECT * FROM emp_bookings WHERE {$filter["key"]} like '%{$filter["value"]}%'";
+                $query = $filter["key"] == "event_date" ? "SELECT * FROM emp_bookings where DATE(event_date)='{$filter["value"]}'" : "SELECT * FROM emp_bookings WHERE {$filter["key"]} like '%{$filter["value"]}%'";
             } else {
                 $query = "SELECT * FROM emp_bookings";
             }
