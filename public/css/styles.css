@@ -1,0 +1,83 @@
+body {font-family: Arial, Helvetica, sans-serif;}
+#bookings {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#bookings td, #bookings th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#bookings tr:nth-child(even){background-color: #f2f2f2;}
+
+#bookings tr:hover {background-color: #ddd;}
+
+#bookings th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #212121;
+  color: white;
+}
+
+
+.button {
+  border: none;
+  color: black;
+  background: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  color:white;
+}
+
+#filterComp{
+  margin: 10px;
+}
+.filter-button{
+  border: 2px solid black;
+  background-color:indigo;
+}
+
+.filter-button:hover {
+  background-color:rgb(37, 0, 63);
+} 
+
+.import-button{
+  border: 2px solid black;
+  background-color:rgb(2, 160, 2);
+}
+.import-button:hover {
+  background-color:rgb(2, 80, 2);
+} 
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
