@@ -1,6 +1,6 @@
 <?php
-include("../booking_system/src/controllers/bookings.controller.php");
-include("../booking_system/src/utils/version_compare.php");
+include("./src/controllers/bookings.controller.php");
+include("./src/utils/version_compare.php");
 $bookingsController = new BookingsController();
 $ver_comp = new VersionCompare();
 

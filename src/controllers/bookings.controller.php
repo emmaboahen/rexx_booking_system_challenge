@@ -1,5 +1,5 @@
 <?php
-    require "../models/bookings.models.php";
+    require "./src/models/bookings.models.php";
 
     class BookingsController{
         public $bookings;

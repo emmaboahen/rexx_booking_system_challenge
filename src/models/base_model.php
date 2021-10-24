@@ -1,5 +1,5 @@
 <?php
-    require_once("../configs/database.php");
+    require_once("./src/configs/database.php");
     class BaseModel{//base model class to define reusable db connection
         protected $conn;
         function __construct() {
