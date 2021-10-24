@@ -1,5 +1,5 @@
 <?php
-require("../booking_system/src/models/base_model.php");
+require("./base_model.php");
 
 class Bookings extends BaseModel
 {
