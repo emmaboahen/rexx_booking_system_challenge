@@ -12,7 +12,7 @@ This is a simple php program that has the following functionalities.
 
 ### 1. Importing External System Data
 
-Bookings from external system is in JSON format. To import this data into the application, following these steps:
+Bookings from external system is in JSON format. To import this data into the application, follow these steps:
 
 * Click 'Import new bookings'
 * Select your exported JSON file
