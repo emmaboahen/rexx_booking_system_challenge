@@ -1,4 +1,5 @@
 <?php
+//error_reporting(E_ERROR);
 require("base_model.php");
 
 class Bookings extends BaseModel
@@ -68,12 +69,16 @@ class Bookings extends BaseModel
     public function isImportDataValid($data)
     { //validating uploaded data content to see if it matches with what is expected in database
         $expected_fields = ['employee_name', 'employee_mail', 'event_id', 'event_name', 'participation_fee', 'event_date', 'participation_id', 'version'];
-        foreach ($data as $key => $value) {
-            if (!in_array($key, $expected_fields)) {
-                return false;
-            }
-        }
 
+        if (is_array($data) || is_object($data)) {
+            foreach ($data as $key => $value) {
+                if (!in_array($key, $expected_fields)) {
+                    return false;
+                }
+            }
+        } else {
+            return false;
+        }
         return true;
     }
 }
